@@ -31,9 +31,6 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
-    //editText
-    private EditText editText;
-
     //copy name button
     private Button copyName;
 
@@ -63,7 +60,7 @@ public class TextModActivity extends ActionBarActivity {
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -88,7 +85,6 @@ public class TextModActivity extends ActionBarActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
 
-         editText = (EditText)findViewById(R.id.editText);
         }
 
         // define a listener for the spinner
@@ -127,9 +123,20 @@ public class TextModActivity extends ActionBarActivity {
      public void copyName(View view)
    {
         //String text = editText.getText().toString();
-        String spinnerText = spinner.getSelectedItem().toString();
-        editText.setText(editText.getText() + spinnerText);
+       if(spinner.getSelectedItem() != null) {
+           String spinnerText = spinner.getSelectedItem().toString();
+           editText.setText(editText.getText().toString() + spinnerText);
+       }
    }
+    public void UpperCase(View view){
+        editText.setText(editText.getText().toString().toUpperCase());
+    }
+    public void toLowerClick(View view){
+        editText.setText(editText.getText().toString().toLowerCase());
+    }
+    public void clearClick(View view){
+        editText.setText("");
+    }
     public void reverseButton(View view){
         String one = editText.getText().toString();
         String finalone = "";
