@@ -124,12 +124,12 @@ public class TextModActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void copyName(View view)
-    {
+     public void copyName(View view)
+   {
         //String text = editText.getText().toString();
         String spinnerText = spinner.getSelectedItem().toString();
         editText.setText(editText.getText() + spinnerText);
-    }
+   }
     /**
      * class that handles our spinner's selection events
      */
