@@ -26,6 +26,7 @@ public class TextModActivity extends ActionBarActivity {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
+    EditText editText;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
@@ -62,7 +63,7 @@ public class TextModActivity extends ActionBarActivity {
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        spinner = (Spinner)findViewById(R.id.spinner);
+        Spinner spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -86,13 +87,12 @@ public class TextModActivity extends ActionBarActivity {
             // load the image; add to arraylist
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
+
+         editText = (EditText)findViewById(R.id.editText);
         }
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
-
-        // button listener
-        // copyName.setOnClickListener(new MyButtonListener());
 
     }
 
@@ -130,6 +130,16 @@ public class TextModActivity extends ActionBarActivity {
         String spinnerText = spinner.getSelectedItem().toString();
         editText.setText(editText.getText() + spinnerText);
    }
+    public void reverseButton(View view){
+        String one = editText.getText().toString();
+        String finalone = "";
+        for(int i= one.length()-1;i>=0;i--){
+            finalone += one.charAt(i);
+
+        }
+        editText.setText(finalone);
+    }
+
     /**
      * class that handles our spinner's selection events
      */
@@ -144,7 +154,8 @@ public class TextModActivity extends ActionBarActivity {
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
-            v = selectedItemView;
+
+
         }
 
         /**
