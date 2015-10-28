@@ -29,6 +29,9 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
+    EditText editText;
+
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -70,7 +73,7 @@ public class TextModActivity extends ActionBarActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
 
-         EditText editText = (EditText)findViewById(R.id.editText);
+         editText = (EditText)findViewById(R.id.editText);
         }
 
         // define a listener for the spinner
@@ -104,6 +107,15 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clearClick(View view){
+        editText.setText("");
+    }
+
+    public void toLowerClick(View view){
+        String text = editText.getText().toString();
+        editText.setText(text.toLowerCase());
     }
 
     /**
