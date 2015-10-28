@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
@@ -68,6 +69,8 @@ public class TextModActivity extends ActionBarActivity {
             // load the image; add to arraylist
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
+
+         EditText editText = (EditText)findViewById(R.id.editText);
         }
 
         // define a listener for the spinner
@@ -117,6 +120,8 @@ public class TextModActivity extends ActionBarActivity {
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
+
+
         }
 
         /**
