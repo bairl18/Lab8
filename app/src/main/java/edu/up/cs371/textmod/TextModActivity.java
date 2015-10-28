@@ -5,7 +5,6 @@ package edu.up.cs371.textmod;
  *
  * Allow text to be modified in simple ways with button-presses.
  */
-import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,15 +21,13 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity{
+public class TextModActivity extends ActionBarActivity {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
-
-    private EditText editText;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -73,17 +70,12 @@ public class TextModActivity extends ActionBarActivity{
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
 
-         editText = (EditText)findViewById(R.id.editText);
+         EditText editText = (EditText)findViewById(R.id.editText);
         }
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
-    }
-
-    public void UpperCase(View view)
-    {
-        editText.setText(editText.getText().toString().toUpperCase());
     }
 
     /**
