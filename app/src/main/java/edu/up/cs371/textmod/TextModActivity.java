@@ -25,6 +25,7 @@ public class TextModActivity extends ActionBarActivity {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
+    EditText editText;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
@@ -70,7 +71,7 @@ public class TextModActivity extends ActionBarActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
 
-         EditText editText = (EditText)findViewById(R.id.editText);
+         editText = (EditText)findViewById(R.id.editText);
         }
 
         // define a listener for the spinner
@@ -104,6 +105,16 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void reverseButton(View view){
+        String one = editText.getText().toString();
+        String finalone = "";
+        for(int i= one.length()-1;i>=0;i--){
+            finalone += one.charAt(i);
+
+        }
+        editText.setText(finalone);
     }
 
     /**
