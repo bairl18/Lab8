@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -29,6 +30,7 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
+    private EditText editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -41,6 +43,9 @@ public class TextModActivity extends ActionBarActivity {
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
+
+
+
 
         // Set up the spinner so that it shows the names in the spinner array resources
         //
@@ -70,11 +75,15 @@ public class TextModActivity extends ActionBarActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
 
-         EditText editText = (EditText)findViewById(R.id.editText);
+         editText = (EditText)findViewById(R.id.editText);
+
         }
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
+
+        //Button buttonReverse = (Button)findViewById(R.id.button4);
+
 
     }
 
@@ -105,6 +114,16 @@ public class TextModActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+   public void reverseButton(View view){
+
+       String tempEditText = editText.getText().toString();
+       String newReverseString = "";
+       for(int i=tempEditText.length()-1;i>=0;i--){
+           newReverseString +=tempEditText.charAt(i);
+       }
+       editText.setText(newReverseString);
+   }
 
     /**
      * class that handles our spinner's selection events
