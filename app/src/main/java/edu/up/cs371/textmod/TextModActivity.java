@@ -32,7 +32,7 @@ public class TextModActivity extends ActionBarActivity {
     private ImageView imageView; // the view that shows the image
 
     //editText
-    private EditText editText;
+   // private EditText editText;
 
     //copy name button
     private Button copyName;
@@ -53,7 +53,7 @@ public class TextModActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
 
-        editText = (EditText)findViewById(R.id.editText);
+       // editText = (EditText)findViewById(R.id.editText);
 
         copyName = (Button)findViewById(R.id.button2);
 
